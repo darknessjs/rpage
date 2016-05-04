@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/Rpage.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <script language="JavaScript" src="js/jquery.js"></script>
+    <script language="JavaScript" src="js/Rpage.js"></script>
+</head>
+<body>
+    <div class="testpage">
+
+    </div>
+</body>
+</html>
+<script language="JavaScript">
+    //生成一个分页对象，传入一个div(div有默认样式)
+    var pageobj=new Rpage.pageObj($(".testpage"));
+
+    //得到数据方法，或者说分页时获取数据的函数
+    function getdata(){
+        $.getJSON("rpage.json",{"page":pageobj.pagenum},function(data){
+            //根据数据的总量进行分页
+            //setalldatacount传入总的数据数，自动分页
+            //pagenum为当前页码数
+            pageobj.setalldatacount(data.count);
+        });
+    }
+    //初始调用
+    getdata();
+    //点击分页时执行的方法
+    //pagenum会切换为对应的页码数
+    pageobj.setpagechange(
+            function(){
+                getdata();
+                console.log("显示当前页数"+pageobj.pagenum)
+            }
+    );
+</script>

@@ -1,0 +1,48 @@
+
+.R_pagenum li,.prepage,.nextpage{
+    list-style: none;
+    font-size: 14px;
+    color: #636363;
+    float: left;
+    cursor: pointer;
+    margin-right: 5px;
+    -moz-user-select:none;/*火狐*/
+
+    -webkit-user-select:none;/*webkit浏览器*/
+
+    -ms-user-select:none;/*IE10*/
+
+    -khtml-user-select:none;/*早期浏览器*/
+
+    user-select:none;
+}
+.prepage{
+    margin-left: 20px;
+    width: 75px;
+    font-weight: bolder;
+}
+.prepage span{
+    padding-left: 10px;
+    background-position: 0px -16px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+}
+.nextpage{
+    width: 75px;
+    font-weight: bolder;
+}
+.nextpage span{
+    padding-left: 10px;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+}
+.pagestatus{
+    display: none;
+    width: 100%;
+    background-color: rgb(216,216,216);
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
