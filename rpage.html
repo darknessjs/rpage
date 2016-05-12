@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>rpagedemo</title>
     <link rel="stylesheet" href="css/Rpage.css" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <script language="JavaScript" src="js/jquery.js"></script>
@@ -10,20 +10,31 @@
 </head>
 <body>
     <div class="testpage">
-
     </div>
+<div class="result"></div>
 </body>
 </html>
 <script language="JavaScript">
     //生成一个分页对象，传入一个div(div有默认样式)
     var pageobj=new Rpage.pageObj($(".testpage"));
-
+    //设置页面每页的数据数量，默认为10
+    pageobj.perpage=20;
     //得到数据方法，或者说分页时获取数据的函数
     function getdata(){
         $.getJSON("rpage.json",{"page":pageobj.pagenum},function(data){
             //根据数据的总量进行分页
             //setalldatacount传入总的数据数，自动分页
             //pagenum为当前页码数
+            //输出相应的数据，正常开发环境中传入对应的页码data只会返回相应页码的数据
+            $(".result").html("");
+            for(var i=0;i<data.target.length;i++){
+                if((i>=(pageobj.pagenum-1)*pageobj.perpage) && i<pageobj.perpage*pageobj.pagenum){
+                    $(".result").append("<br>")
+                    $(".result").append("第"+(i-(-1))+"条数据的age为:");
+
+                    $(".result").append(data.target[i].age);
+                }
+            }
             pageobj.setalldatacount(data.count);
         });
     }
@@ -37,4 +48,6 @@
                 console.log("显示当前页数"+pageobj.pagenum)
             }
     );
+
+
 </script>
