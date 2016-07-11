@@ -1,6 +1,3 @@
-/**
- * Created by 静龄 on 2015/11/10.
- */
 
 
 !
@@ -12,6 +9,7 @@
 
     function(Rpage){
         Rpage.pageObj=function(pagediv){
+            //将div设置为自动升成页码的div
             this.setpagediv=function(pagediv){
                 this.jqpagediv=pagediv;
                 this.jqpagediv.html('' +
