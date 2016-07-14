@@ -43,14 +43,18 @@
 
             };
             this.jqpagediv=(pagediv?this.setpagediv(pagediv):null);
+            //每页数
             this.perpage=10;
+            //页码
             this.pagenum=1;
+            //
             this.alldatacount=0;
             this.isshow=true;
             this.pagechange=function(){};
             this.defaultpagechange=function(){
                 $(".R_pagenum").html("");
             };
+
             this.addclass=function(cssname){
                 this.jqpagediv.addClass(cssname);
             };
