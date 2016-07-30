@@ -55,6 +55,7 @@
                 $(".R_pagenum").html("");
             };
 
+            //给div添加类
             this.addclass=function(cssname){
                 this.jqpagediv.addClass(cssname);
             };
