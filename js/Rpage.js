@@ -49,6 +49,7 @@
             this.pagenum=1;
             //
             this.alldatacount=0;
+            //是否显示分页div
             this.isshow=true;
             this.pagechange=function(){};
             this.defaultpagechange=function(){
