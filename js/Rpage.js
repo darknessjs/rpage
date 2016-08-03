@@ -10,6 +10,7 @@
     function(Rpage){
         Rpage.pageObj=function(pagediv){
             //将div设置成页码的div
+            
 
 
             this.setpagediv=function(pagediv){
